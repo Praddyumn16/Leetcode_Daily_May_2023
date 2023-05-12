@@ -1,22 +1,14 @@
 class Solution {
 public:
     
-    long long solve(int i , vector<vector<int>>& questions , vector<long long>& dp) {
-        
-        if(i >= questions.size())
-            return 0;
-        
-        if(dp[i] != -1)
-            return dp[i];
-        
-        long long pick = questions[i][0] + solve(i + questions[i][1] + 1 , questions , dp);
-        long long not_pick = solve(i + 1 , questions , dp);
-        
-        return dp[i] = max(pick , not_pick);
-    }
     
-    long long mostPoints(vector<vector<int>>& questions) {
-        vector<long long> dp(questions.size() , -1);
-        return solve(0 , questions , dp);
+    long long mostPoints(vector<vector<int>>& q) {
+        
+        vector<long long> dp(200001 , 0);
+        
+        for(int i = q.size() - 1 ; i >= 0 ; i--)
+            dp[i] = max(q[i][0] + dp[i + q[i][1] + 1] , dp[i + 1]);
+        
+        return dp[0];
     }
 };
