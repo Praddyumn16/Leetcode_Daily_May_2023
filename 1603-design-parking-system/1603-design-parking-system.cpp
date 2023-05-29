@@ -10,21 +10,14 @@ public:
     
     bool addCar(int carType) {
         
-        bool ans;
-        
         switch(carType) {
             case 1:
-                ans = (big ? big-- , true : false);
-                break;
+                return (big ? big-- , true : false);
             case 2:
-                ans = (medium ? medium-- , true : false);
-                break;
+                return (medium ? medium-- , true : false);
             default:
-                ans = (small ? small-- , true : false);
-                break;
+                return (small ? small-- , true : false);
         }
-        
-        return ans;
     }
 };
 
