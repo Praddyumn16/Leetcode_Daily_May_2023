@@ -18,7 +18,7 @@ class Solution {
         }
         
         vector<int> vis(n , 0);
-        vector<int> dis(n , INT_MAX);
+        vector<int> dis(n , -1);
         
         queue<pair<int , int>> q;
         q.push({src , 0});
@@ -36,8 +36,6 @@ class Solution {
             }
         }
         
-        for(auto &a : dis)
-            if(a == INT_MAX) a = -1;
             
         return dis;
     }
